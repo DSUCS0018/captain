@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
+"use client"; 
+
+
 
 // Define the type for the Product
 interface Product {

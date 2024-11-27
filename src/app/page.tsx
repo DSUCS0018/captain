@@ -5,7 +5,7 @@ import News from '@/components/landing/News';
 import Subscribe from '@/components/landing/Subscribe';
 import Footer from '@/components/landing/Footer';
 import Marketplace from '@/components/landing/Marketplace';  // Import the Marketplace component
-
+'use client';
 export default function Home() {
   return (
     <main className="flex flex-col min-h-screen">
