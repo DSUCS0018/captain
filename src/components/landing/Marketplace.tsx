@@ -20,7 +20,6 @@ export default function Marketplace() {
   const [products, setProducts] = useState<Product[]>(initialProducts); // Marketplace products
   const [userCredits, setUserCredits] = useState<number>(1000); // User's credits
   const [secondHandMarket, setSecondHandMarket] = useState<Product[]>([]); // Second-hand market products
-  const [searchTerm, setSearchTerm] = useState<string>(''); // State for search query
 
   // Handle buying a product
   const handleBuy = (productId: number) => {
@@ -46,29 +45,13 @@ export default function Marketplace() {
     alert(`${product.name} added to the Second-Hand Market!`);
   };
 
-  // Filter products based on search term
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   return (
     <section className="p-4 bg-gray-100">
       <h2 className="text-3xl font-bold text-center mb-6">Marketplace</h2>
 
-      {/* Search Bar */}
-      <div className="mb-6 text-center">
-        <input
-          type="text"
-          placeholder="Search for a product..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="px-4 py-2 border rounded-lg"
-        />
-      </div>
-
-      {/* Display filtered products */}
+      {/* Display marketplace products */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {filteredProducts.map((product) => (
+        {products.map((product) => (
           <div key={product.id} className="border rounded-lg shadow-md p-4 text-center">
             <Image
               src={product.image}
